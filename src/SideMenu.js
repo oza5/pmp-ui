@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TopBar from './TopBar';
 
-const SideMenu = () => {
+const SideMenu = ({user}) => {
   return (
     <div className="side-menu">
-      <TopBar username={"Osman Ali"} />
+      <TopBar username={user.firstName} />
       <ul>
         <li>
           <Link to="/">Health Dashboard</Link>

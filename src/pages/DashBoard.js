@@ -5,25 +5,9 @@ import Tables from './Tables';
 import EditUserDetailsModal from '../components/EditUserDetailsModal';
 
 
-
-
-const initialDetails = {
-  firstName: 'Osman',
-  lastName: 'Ali',
-  age: 25,
-  city: 'New York',
-  country: 'USA',
-  weight: 70, // Add weight in kilograms
-  height: 180, // Add height in centimeters
-  gender: 'Male',
-  pregnant: false,
-  tobacco_user: false,
-  sexually_active: true,
-};
-
-const DashBoard = () => {
-  const[userDetails,setUserDetails]= useState(initialDetails)
-  const { firstName, lastName, age, city, country, weight, height, gender, pregnant, tobacco_user, sexually_active } = userDetails;
+const DashBoard = ({user,setUser}) => {
+  console.log(user)
+  const { firstName, lastName, age, city, country, weight, height, gender, pregnant, tobacco_user, sexually_active } = user;
   const [showScreening, setShowScreening] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -44,7 +28,7 @@ const DashBoard = () => {
   };
 
   const handleSaveUserDetails = (updatedUserDetails) => {
-    setUserDetails(updatedUserDetails);
+    setUser(updatedUserDetails);
   };
   return (
     
@@ -110,7 +94,7 @@ const DashBoard = () => {
         open={editModalOpen}
         onClose={() => setEditModalOpen(false)}
         onSave={handleSaveUserDetails}
-        userDetails={userDetails}
+        userDetails={user}
       />
       </div>
     </div>

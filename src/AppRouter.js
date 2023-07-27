@@ -8,10 +8,22 @@ import VaccinationInformation from './pages/VaccinationInformation';
 import HospitalsPage from './pages/HospitalsPage';
 import Login from './pages/Login';
 
-
+const initialDetails = {
+  firstName: 'Osman',
+  lastName: 'Ali',
+  age: 25,
+  city: 'New York',
+  country: 'USA',
+  weight: 70, // Add weight in kilograms
+  height: 180, // Add height in centimeters
+  gender: 'Male',
+  pregnant: false,
+  tobacco_user: false,
+  sexually_active: true,
+};
 const AppRouter = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [user,setUser]=useState(initialDetails)
   const handleLogin = () => {
     // Set the user as logged in
     setLoggedIn(true);
@@ -22,9 +34,9 @@ const AppRouter = () => {
         <Login onLogin={handleLogin} />
       ) : (
       <div className="app-container">
-        <SideMenu/>
+        <SideMenu user={user}/>
         <Routes>
-          <Route path="/" element={<DashBoard/>} />
+          <Route path="/" element={<DashBoard user={user} setUser={setUser}/>} />
           <Route path="/details/:itemId" element={<Details/>} />
           <Route path="/vaccinations" element={<VaccinationInformation/>} />
           <Route path="/hospitals" element={<HospitalsPage/>} />
