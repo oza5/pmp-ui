@@ -97,5 +97,10 @@
 .modal-buttons-container{
   margin-top: 20px;
 }
+.loading-spinner{
+   display: flex;
+   justify-content: center;
+   margin-top: 40px;
+}
   
   

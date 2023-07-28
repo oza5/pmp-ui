@@ -1,9 +1,10 @@
 // src/SideMenu.js
-import React from 'react';
+
 import { Link } from 'react-router-dom';
+
 import TopBar from './TopBar';
 
-const SideMenu = ({user}) => {
+const SideMenu = ({ user }) => {
   return (
     <div className="side-menu">
       <TopBar username={user.firstName} />

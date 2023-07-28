@@ -1,6 +1,7 @@
 // src/AppRouter.js
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import SideMenu from './SideMenu';
 import Details from './pages/Details';
 import DashBoard from './pages/DashBoard';
@@ -23,25 +24,29 @@ const initialDetails = {
 };
 const AppRouter = () => {
   const [loggedIn, setLoggedIn] = useState(true);
-  const [user,setUser]=useState(initialDetails)
+  const [user, setUser] = useState(initialDetails);
   const handleLogin = () => {
     // Set the user as logged in
     setLoggedIn(true);
   };
   return (
     <Router>
-       {!loggedIn ? (
+      {!loggedIn ? (
         <Login onLogin={handleLogin} />
       ) : (
-      <div className="app-container">
-        <SideMenu user={user}/>
-        <Routes>
-          <Route path="/" element={<DashBoard user={user} setUser={setUser}/>} />
-          <Route path="/details/:itemId" element={<Details/>} />
-          <Route path="/vaccinations" element={<VaccinationInformation/>} />
-          <Route path="/hospitals" element={<HospitalsPage/>} />
-        </Routes>
-      </div>)}
+        <div className="app-container">
+          <SideMenu user={user} />
+          <Routes>
+            <Route
+              path="/"
+              element={<DashBoard user={user} setUser={setUser} />}
+            />
+            <Route path="/details/:itemId" element={<Details />} />
+            <Route path="/vaccinations" element={<VaccinationInformation />} />
+            <Route path="/hospitals" element={<HospitalsPage />} />
+          </Routes>
+        </div>
+      )}
     </Router>
   );
 };

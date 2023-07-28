@@ -1,6 +1,3 @@
-// src/pages/Login.js
-import React from 'react';
-
 const Reminders = () => {
   return (
     <div className="page-container">

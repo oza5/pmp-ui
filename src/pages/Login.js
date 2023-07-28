@@ -1,5 +1,5 @@
 // src/pages/Login.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, TextField } from '@mui/material';
 
 const Login = ({ onLogin }) => {
@@ -21,7 +21,14 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+      }}
+    >
       <div style={{ textAlign: 'center' }}>
         <h2>Health Screening App</h2>
         <TextField

@@ -1,5 +1,5 @@
 // src/components/HospitalsMap.js
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const mapContainerStyle = {
@@ -32,10 +32,17 @@ const HospitalsMap = () => {
   }, []);
 
   return (
-    <LoadScript >
-      <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={14}>
+    <LoadScript>
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={14}
+      >
         {hospitals.map((hospital) => (
-          <Marker key={hospital.id} position={{ lat: hospital.lat, lng: hospital.lng }} />
+          <Marker
+            key={hospital.id}
+            position={{ lat: hospital.lat, lng: hospital.lng }}
+          />
         ))}
       </GoogleMap>
     </LoadScript>

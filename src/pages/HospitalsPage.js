@@ -1,5 +1,3 @@
-// src/pages/HospitalsPage.js
-import React from 'react';
 import HospitalsMap from '../components/HospitalsMap';
 
 const HospitalsPage = () => {

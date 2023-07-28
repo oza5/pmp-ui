@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Modal, Typography, Button } from '@mui/material';
-
 
 const Details = () => {
   const { itemId } = useParams();
@@ -35,90 +34,99 @@ const Details = () => {
 
   return (
     <div className="page-container">
-    <div className="details-container">
-      <h3>Details Page</h3>
-      <p>Name: {item.name}</p>
-      <p>Details: {item.details}</p>
-      <Link to="/">Back to Screening Results</Link>
+      <div className="details-container">
+        <h3>Details Page</h3>
+        <p>Name: {item.name}</p>
+        <p>Details: {item.details}</p>
+        <Link to="/">Back to Screening Results</Link>
 
-     <div className='modal-buttons-container'>
-     <Button
-        variant="contained"
-        onClick={handleOpenModal1}
-        style={{ backgroundColor: 'rgba(0, 150, 255, 0.8)', marginRight: '8px' }}
-      >
-        Recommendation
-      </Button>
+        <div className="modal-buttons-container">
+          <Button
+            variant="contained"
+            onClick={handleOpenModal1}
+            style={{
+              backgroundColor: 'rgba(0, 150, 255, 0.8)',
+              marginRight: '8px',
+            }}
+          >
+            Recommendation
+          </Button>
 
-      {/* Button to open Modal 2 */}
-      <Button
-        variant="contained"
-        onClick={handleOpenModal2}
-        style={{ backgroundColor: 'rgba(200, 200, 200, 0.8)', marginRight: '8px' }}
-      >
-        Summary
-      </Button>
+          {/* Button to open Modal 2 */}
+          <Button
+            variant="contained"
+            onClick={handleOpenModal2}
+            style={{
+              backgroundColor: 'rgba(200, 200, 200, 0.8)',
+              marginRight: '8px',
+            }}
+          >
+            Summary
+          </Button>
 
-      {/* Button to open Modal 3 */}
-      <Button
-        variant="contained"
-        onClick={handleOpenModal3}
-        style={{ backgroundColor: 'rgba(255, 183, 77, 0.8)', marginRight: '8px' }}
-      >
-        Risk Factor
-      </Button>
+          {/* Button to open Modal 3 */}
+          <Button
+            variant="contained"
+            onClick={handleOpenModal3}
+            style={{
+              backgroundColor: 'rgba(255, 183, 77, 0.8)',
+              marginRight: '8px',
+            }}
+          >
+            Risk Factor
+          </Button>
 
-      {/* Button to open Modal 4 */}
-      <Button
-        variant="contained"
-        onClick={handleOpenModal4}
-        style={{ backgroundColor: 'rgba(170, 130, 165, 0.8)' }}
-      >
-        Frequency
-      </Button>
+          {/* Button to open Modal 4 */}
+          <Button
+            variant="contained"
+            onClick={handleOpenModal4}
+            style={{ backgroundColor: 'rgba(170, 130, 165, 0.8)' }}
+          >
+            Frequency
+          </Button>
+        </div>
+
+        {/* Modals */}
+        <Modal open={modal1Open} onClose={handleCloseModal1}>
+          <div className="modal">
+            <Typography variant="h5">Recommendation</Typography>
+            {/* Add information for Modal 1 here */}
+            <Button variant="contained" onClick={handleCloseModal1}>
+              Close
+            </Button>
+          </div>
+        </Modal>
+
+        <Modal open={modal2Open} onClose={handleCloseModal2}>
+          <div className="modal">
+            <Typography variant="h5">Summary</Typography>
+            {/* Add information for Modal 2 here */}
+            <Button variant="contained" onClick={handleCloseModal2}>
+              Close
+            </Button>
+          </div>
+        </Modal>
+
+        <Modal open={modal3Open} onClose={handleCloseModal3}>
+          <div className="modal">
+            <Typography variant="h5">Risk Factor</Typography>
+            {/* Add information for Modal 3 here */}
+            <Button variant="contained" onClick={handleCloseModal3}>
+              Close
+            </Button>
+          </div>
+        </Modal>
+
+        <Modal open={modal4Open} onClose={handleCloseModal4}>
+          <div className="modal">
+            <Typography variant="h5">Frequency</Typography>
+            {/* Add information for Modal 4 here */}
+            <Button variant="contained" onClick={handleCloseModal4}>
+              Close
+            </Button>
+          </div>
+        </Modal>
       </div>
-
-      {/* Modals */}
-      <Modal open={modal1Open} onClose={handleCloseModal1}>
-        <div className="modal">
-          <Typography variant="h5">Recommendation</Typography>
-          {/* Add information for Modal 1 here */}
-          <Button variant="contained" onClick={handleCloseModal1}>
-            Close 
-          </Button>
-        </div>
-      </Modal>
-
-      <Modal open={modal2Open} onClose={handleCloseModal2}>
-        <div className="modal">
-          <Typography variant="h5">Summary</Typography>
-          {/* Add information for Modal 2 here */}
-          <Button variant="contained" onClick={handleCloseModal2}>
-            Close 
-          </Button>
-        </div>
-      </Modal>
-
-      <Modal open={modal3Open} onClose={handleCloseModal3}>
-        <div className="modal">
-          <Typography variant="h5">Risk Factor</Typography>
-          {/* Add information for Modal 3 here */}
-          <Button variant="contained" onClick={handleCloseModal3}>
-            Close 
-          </Button>
-        </div>
-      </Modal>
-
-      <Modal open={modal4Open} onClose={handleCloseModal4}>
-        <div className="modal">
-          <Typography variant="h5">Frequency</Typography>
-          {/* Add information for Modal 4 here */}
-          <Button variant="contained" onClick={handleCloseModal4}>
-            Close 
-          </Button>
-        </div>
-      </Modal>
-    </div>
     </div>
   );
 };

@@ -1,10 +1,16 @@
 // src/components/VaccinationTable.js
-import React from 'react';
-import { Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 
-const VaccinationTable = ({records}) => {
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+} from '@mui/material';
+
+const VaccinationTable = ({ records }) => {
   // Sample data for vaccination records
-  const vaccinationRecords = records
+  const vaccinationRecords = records;
 
   return (
     <Table>

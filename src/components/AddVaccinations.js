@@ -1,5 +1,5 @@
 // src/components/AddRecordModal.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Dialog,
@@ -12,7 +12,7 @@ import {
 
 const AddVaccinations = ({ open, onClose, onSave }) => {
   const [vaccine, setVaccine] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState('' );
   const [location, setLocation] = useState('');
 
   const handleSave = () => {

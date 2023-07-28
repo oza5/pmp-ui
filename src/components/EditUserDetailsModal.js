@@ -1,5 +1,5 @@
 // src/components/EditUserDetailsModal.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Dialog,
@@ -11,7 +11,9 @@ import {
 } from '@mui/material';
 
 const EditUserDetailsModal = ({ open, onClose, onSave, userDetails }) => {
-  const [editedUserDetails, setEditedUserDetails] = useState({ ...userDetails });
+  const [editedUserDetails, setEditedUserDetails] = useState({
+    ...userDetails,
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
