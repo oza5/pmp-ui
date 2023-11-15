@@ -1,5 +1,5 @@
 // src/components/AddRecordModal.js
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -8,12 +8,12 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-} from '@mui/material';
+} from "@mui/material";
 
 const AddVaccinations = ({ open, onClose, onSave }) => {
-  const [vaccine, setVaccine] = useState('');
-  const [date, setDate] = useState('' );
-  const [location, setLocation] = useState('');
+  const [vaccine, setVaccine] = useState("");
+  const [date, setDate] = useState("");
+  const [location, setLocation] = useState("");
 
   const handleSave = () => {
     onSave({ vaccine, date, location });

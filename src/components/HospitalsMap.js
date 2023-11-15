@@ -1,10 +1,10 @@
 // src/components/HospitalsMap.js
-import { useEffect, useState } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useEffect, useState } from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
-  width: '100%',
-  height: '400px',
+  width: "100%",
+  height: "400px",
 };
 
 const center = {
@@ -22,9 +22,9 @@ const HospitalsMap = () => {
 
     // Sample data for hospitals (Replace this with real data from your API)
     const dummyHospitals = [
-      { id: 1, name: 'Hospital A', lat: 37.773, lng: -122.42 },
-      { id: 2, name: 'Hospital B', lat: 37.772, lng: -122.41 },
-      { id: 3, name: 'Hospital C', lat: 37.771, lng: -122.43 },
+      { id: 1, name: "Hospital A", lat: 37.773, lng: -122.42 },
+      { id: 2, name: "Hospital B", lat: 37.772, lng: -122.41 },
+      { id: 3, name: "Hospital C", lat: 37.771, lng: -122.43 },
       // Add more hospitals as needed
     ];
 

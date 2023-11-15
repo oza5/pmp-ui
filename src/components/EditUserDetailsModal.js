@@ -1,5 +1,5 @@
 // src/components/EditUserDetailsModal.js
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -8,7 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-} from '@mui/material';
+} from "@mui/material";
 
 const EditUserDetailsModal = ({ open, onClose, onSave, userDetails }) => {
   const [editedUserDetails, setEditedUserDetails] = useState({

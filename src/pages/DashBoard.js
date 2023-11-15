@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Typography, Avatar, Button, CircularProgress } from '@mui/material';
+import { useState } from "react";
+import { Typography, Avatar, Button, CircularProgress } from "@mui/material";
 
-import Tables from './Tables';
-import EditUserDetailsModal from '../components/EditUserDetailsModal';
+import Tables from "./Tables";
+import EditUserDetailsModal from "../components/EditUserDetailsModal";
+import ExportAsCSV from "../components/ExportAsCSV";
 
 const DashBoard = ({ user, setUser }) => {
   const {
@@ -44,7 +45,7 @@ const DashBoard = ({ user, setUser }) => {
   };
   return (
     <div className="page-container">
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: "center" }}>
         <h2>Health Dashboard</h2>
       </div>
       <div className="page-container">
@@ -63,24 +64,25 @@ const DashBoard = ({ user, setUser }) => {
             <Typography variant="body1">Height: {height} cm</Typography>
             <Typography variant="body1">Gender: {gender}</Typography>
             <Typography variant="body1">
-              Pregnant: {pregnant ? 'Yes' : 'No'}
+              Pregnant: {pregnant ? "Yes" : "No"}
             </Typography>
             <Typography variant="body1">
-              Tobacco User: {tobacco_user ? 'Yes' : 'No'}
+              Tobacco User: {tobacco_user ? "Yes" : "No"}
             </Typography>
             <Typography variant="body1">
-              Sexually Active: {sexually_active ? 'Yes' : 'No'}
+              Sexually Active: {sexually_active ? "Yes" : "No"}
             </Typography>
           </div>
         </div>
       </div>
       <div className="button-container">
         <Button variant="contained" onClick={handleShowScreening}>
-          {showScreening ? 'Close Screening' : 'Start screening'}
+          {showScreening ? "Close Screening" : "Start screening"}
         </Button>
         <Button variant="contained" onClick={handleEditDetails}>
           Edit Details
         </Button>
+        <ExportAsCSV file_name={"dashBoard"} />
       </div>
       <div className="table-container">
         {isLoading ? ( // Conditionally render the loading spinner

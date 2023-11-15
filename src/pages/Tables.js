@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from "react";
 import {
   Typography,
   List,
@@ -6,8 +6,8 @@ import {
   ListItemText,
   Tabs,
   Tab,
-} from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+} from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
 const Tables = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -16,30 +16,30 @@ const Tables = () => {
   const tabData = useMemo(
     () => [
       {
-        label: 'A - Recommended',
+        label: "A - Recommended",
         items: [
-          { id: 'Diabetes', name: 'Diabetes', details: 'Details for Item 1' },
+          { id: "Diabetes", name: "Diabetes", details: "Details for Item 1" },
           {
-            id: 'Hypertension',
-            name: 'Hyper tension',
-            details: 'Details for Item 2',
+            id: "Hypertension",
+            name: "Hyper tension",
+            details: "Details for Item 2",
           },
-          { id: 'Syphillis', name: 'Syphillis', details: 'Details for Item 3' },
+          { id: "Syphillis", name: "Syphillis", details: "Details for Item 3" },
         ],
       },
       {
-        label: 'B - Recommended',
+        label: "B - Recommended",
         items: [
-          { id: 'item4', name: 'Item 4', details: 'Details for Item 4' },
-          { id: 'item5', name: 'Item 5', details: 'Details for Item 5' },
+          { id: "item4", name: "Item 4", details: "Details for Item 4" },
+          { id: "item5", name: "Item 5", details: "Details for Item 5" },
         ],
       },
       {
-        label: 'C - Selectively Recommended',
+        label: "C - Selectively Recommended",
         items: [
-          { id: 'item6', name: 'Item 6', details: 'Details for Item 6' },
-          { id: 'item7', name: 'Item 7', details: 'Details for Item 7' },
-          { id: 'item8', name: 'Item 8', details: 'Details for Item 8' },
+          { id: "item6", name: "Item 6", details: "Details for Item 6" },
+          { id: "item7", name: "Item 7", details: "Details for Item 7" },
+          { id: "item8", name: "Item 8", details: "Details for Item 8" },
         ],
       },
     ],

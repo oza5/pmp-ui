@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@here/maps-api-for-javascript": "^1.48.1",
     "@mui/material": "^5.14.1",
     "@react-google-maps/api": "^2.19.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -15,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "write-excel-file": "^1.4.27"
   },
   "scripts": {
     "lint": "eslint .",

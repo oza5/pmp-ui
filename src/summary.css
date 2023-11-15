@@ -1,0 +1,30 @@
+
+
+.tiles-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .tile {
+    width: 200px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .tile:hover {
+    transform: scale(1.1);
+  }
+  

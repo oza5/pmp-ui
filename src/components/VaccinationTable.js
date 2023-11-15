@@ -1,15 +1,11 @@
-// src/components/VaccinationTable.js
-
 import {
   Table,
   TableHead,
   TableBody,
   TableRow,
   TableCell,
-} from '@mui/material';
-
+} from "@mui/material";
 const VaccinationTable = ({ records }) => {
-  // Sample data for vaccination records
   const vaccinationRecords = records;
 
   return (
