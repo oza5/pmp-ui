@@ -7,7 +7,7 @@ import TopBar from "./TopBar";
 const SideMenu = ({ user }) => {
   return (
     <div className="side-menu">
-      <TopBar username={user.firstName} />
+      <TopBar username={user.full_name} />
       <ul>
         <li>
           <Link to="/">Summary</Link>

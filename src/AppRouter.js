@@ -1,5 +1,5 @@
 // src/AppRouter.js
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import SideMenu from "./SideMenu";
@@ -9,48 +9,90 @@ import VaccinationInformation from "./pages/VaccinationInformation";
 import HospitalsPage from "./pages/HospitalsPage";
 import Login from "./pages/Login";
 import Summary from "./pages/Summary";
+import Register from "./pages/Register";
+import Logout from "./pages/Logout";
 
-const initialDetails = {
-  firstName: "Osman",
-  lastName: "Ali",
-  age: 25,
-  city: "New York",
-  country: "USA",
-  weight: 70, // Add weight in kilograms
-  height: 180, // Add height in centimeters
-  gender: "Male",
-  pregnant: false,
-  tobacco_user: false,
-  sexually_active: true,
-};
 const AppRouter = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [user, setUser] = useState(initialDetails);
+  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  useEffect(() => {
+    const newToken = localStorage.getItem("token");
+    if (newToken !== token) {
+      setToken(newToken);
+    }
+  }, [token]);
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      if (token) {
+        try {
+          const response = await fetch(
+            "http://localhost:8000/api/user-details/",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${token}`,
+              },
+            },
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch user details");
+          }
+
+          const data = await response.json();
+          setUser(data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      }
+    };
+
+    fetchUserDetails();
+  }, [token]);
+
   const handleLogin = () => {
-    // Set the user as logged in
     setLoggedIn(true);
   };
-  return (
-    <Router>
-      {!loggedIn ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <div className="app-container">
-          <SideMenu user={user} />
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
 
-          <Routes>
+  return (
+    <div className="app-container">
+      <Router>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          {loggedIn ? (
+            <>
+              <Route
+                path="/dashboard"
+                element={<DashBoard user={user} setUser={setUser} />}
+              />
+              <Route path="/details/:itemId" element={<Details />} />
+              <Route
+                path="/vaccinations"
+                element={<VaccinationInformation />}
+              />
+              <Route path="/hospitals" element={<HospitalsPage />} />
+              <Route path="/" element={<Summary />} />
+            </>
+          ) : (
             <Route
-              path="/dashboard"
-              element={<DashBoard user={user} setUser={setUser} />}
+              path="*"
+              element={<Login setToken={setToken} onLogin={handleLogin} />}
             />
-            <Route path="/details/:itemId" element={<Details />} />
-            <Route path="/vaccinations" element={<VaccinationInformation />} />
-            <Route path="/hospitals" element={<HospitalsPage />} />
-            <Route path="/" element={<Summary />} />
-          </Routes>
-        </div>
-      )}
-    </Router>
+          )}
+        </Routes>
+        {loggedIn && (
+          <div className="app-container">
+            <SideMenu user={user} />
+            <Logout setToken={setToken} onLogout={handleLogout} />
+          </div>
+        )}
+      </Router>
+    </div>
   );
 };
 

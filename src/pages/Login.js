@@ -1,22 +1,42 @@
 // src/pages/Login.js
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setisLoading] = useState(false);
+  const handleLogin = async () => {
+    setisLoading(true);
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/login/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
 
-  const handleLogin = () => {
-    // For this example, we'll use a hardcoded username and password for demonstration purposes
-    const validUsername = "testuser";
-    const validPassword = "testpass";
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
 
-    if (username === validUsername && password === validPassword) {
-      // If the username and password match, call the onLogin function to set the user as logged in
-      onLogin();
-    } else {
-      // If the username and password do not match, show an alert (you can implement better error handling)
-      alert("Invalid credentials. Please try again.");
+      const data = await response.json();
+      const token = data.token;
+      if (token !== null) {
+        localStorage.setItem("token", token);
+        setToken(token);
+        onLogin();
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+    } finally {
+      setisLoading(false);
     }
   };
 
@@ -46,9 +66,17 @@ const Login = ({ onLogin }) => {
           fullWidth
           margin="dense"
         />
-        <Button variant="contained" color="primary" onClick={handleLogin}>
-          Login
-        </Button>
+        <div className="buttons">
+          <Button variant="contained" color="primary" onClick={handleLogin}>
+            {isLoading ? "Logging In..." : "Login"}
+          </Button>
+          <div style={{ padding: "15px" }}></div>
+          <Link to="/register">
+            <Button variant="contained" color="primary">
+              Register
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

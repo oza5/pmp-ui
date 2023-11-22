@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const HospitalList = ({ zipCode }) => {
   const [hospitals, setHospitals] = useState([]);
-
   useEffect(() => {
     const fetchHospitals = async () => {
       try {

@@ -7,13 +7,12 @@ import ExportAsCSV from "../components/ExportAsCSV";
 
 const DashBoard = ({ user, setUser }) => {
   const {
-    firstName,
-    lastName,
+    full_name,
     age,
-    city,
-    country,
     weight,
     height,
+    city,
+    country,
     gender,
     pregnant,
     tobacco_user,
@@ -23,18 +22,17 @@ const DashBoard = ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
-  // Function to get user initials
-  const getInitials = (firstName, lastName) => {
-    return firstName.charAt(0) + lastName.charAt(0);
+  const getInitials = (fullName) => {
+    return fullName.charAt(0);
   };
   const handleShowScreening = () => {
-    setIsLoading(true); // Set loading state to true when the button is clicked
+    setIsLoading(true);
     setShowScreening(!showScreening);
     !showScreening
       ? setTimeout(() => {
-          setIsLoading(false); // Simulate loading time and set loading state to false
+          setIsLoading(false);
         }, 1000)
-      : setIsLoading(false); // Simulated loading time: 2000 milliseconds (2 seconds)
+      : setIsLoading(false);
   };
   const handleEditDetails = () => {
     setEditModalOpen(true);
@@ -51,12 +49,10 @@ const DashBoard = ({ user, setUser }) => {
       <div className="page-container">
         <div className="user-details-container">
           <Avatar sx={{ width: 120, height: 120, fontSize: 60 }}>
-            {getInitials(firstName, lastName)}
+            {getInitials(full_name)}
           </Avatar>
           <div className="user-details">
-            <Typography variant="h6">
-              {firstName} {lastName}
-            </Typography>
+            <Typography variant="h6">{full_name}</Typography>
             <Typography variant="body1">Age: {age}</Typography>
             <Typography variant="body1">City: {city}</Typography>
             <Typography variant="body1">Country: {country}</Typography>
