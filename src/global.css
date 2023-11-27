@@ -1,0 +1,7 @@
+.providers-container {
+    /* Add specific styles to override the inherited styles */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    /* Add any other styles as needed */
+  }

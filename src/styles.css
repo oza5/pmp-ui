@@ -1,4 +1,17 @@
 
+.providers-container {
+  margin-left: 0px;
+  max-width: 200%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+}
 .side-menu {
     width: 200px;
     height: 100%;
@@ -53,6 +66,20 @@
     justify-content: space-between;
     flex-direction: column;
   }
+
+.screen-container {
+    max-width: 70%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+
 
 .user-details-container {
   display: flex;

@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Summary from "./pages/Summary";
 import Register from "./pages/Register";
 import Logout from "./pages/Logout";
+import ProvidersScreening from "./pages/ProvidersScreen";
 
 const AppRouter = () => {
   const [user, setUser] = useState(null);
@@ -64,13 +65,15 @@ const AppRouter = () => {
       <Router>
         <Routes>
           <Route path="/register" element={<Register />} />
+          <Route path="/providers-screening" element={<ProvidersScreening />} />
+          <Route path="/details/:itemId" element={<Details />} />
           {loggedIn ? (
             <>
               <Route
                 path="/dashboard"
                 element={<DashBoard user={user} setUser={setUser} />}
               />
-              <Route path="/details/:itemId" element={<Details />} />
+
               <Route
                 path="/vaccinations"
                 element={<VaccinationInformation />}

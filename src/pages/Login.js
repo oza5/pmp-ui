@@ -76,6 +76,12 @@ const Login = ({ onLogin, setToken }) => {
               Register
             </Button>
           </Link>
+          <div style={{ padding: "15px" }}></div>
+          <Link to="/providers-screening">
+            <Button variant="contained" color="success">
+              Providers
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
